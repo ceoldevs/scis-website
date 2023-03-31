@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import ioe from '$lib/images/ioe-logo.webp';
-	import uohyd from '$lib/images/uohyd-logo.webp';
-	// import { cubicOut } from 'svelte/easing';
+	import uohyd from '$lib/images/uohyd.svg'
 	import {logicalPropertiesHorizontalSlide, horizontalSlide} from '$lib/components/slidetransitions'
 	import {sublinks} from '$lib/stores/sublinks'
 	import {base} from "$app/paths";
@@ -69,7 +67,7 @@
 
 </script>
 
-{#if displayMenu}
+<!-- {#if displayMenu}
 <div transition:logicalPropertiesHorizontalSlide={{direction: 'inline', duration: 500}} 
 	class="z-[10] fixed pt-28 w-screen h-screen flex bg-matty-900/90 backdrop-blur-lg px-24 overflow-hidden"
 	>
@@ -98,9 +96,9 @@
 		{/if}
 	</div>
 </div>
-{/if}
-<nav class="fixed flex py-4 px-24 w-screen z-[100] bg-matty-900/90 backdrop-blur-lg items-center">
-	<span class="flex-1 flex justify-start">
+{/if} -->
+<nav class="fixed border-b-2 border-matty-300/10 grid grid-cols-3 py-4 lpt-lg:px-24 lpt:px-14 px-4 w-screen z-[100] items-center bg-matty-50/70 backdrop-blur-md">
+	<span class="flex justify-start">
 		<button on:click={() => (displayMenu=!displayMenu)} class="material-symbols-rounded">
 			{#if displayMenu}
 				menu_open
@@ -109,11 +107,12 @@
 			{/if}
 		</button>
 	</span>
-	<div class="flex-1 flex items-center gap-3">
-		<img src={uohyd} alt="uoh-logo">
-		<span class="font-medium">SCIS</span>
-		<img src={ioe} alt="ioe-logo">
+	<div class="flex justify-center">
+		<a href={`${base}/`} class="flex items-center gap-3">
+			<img src={uohyd} alt="uoh-logo" >
+			<span class="font-medium">SCIS</span>
+		</a>
 	</div>
-	<a href="#contact" class="hover:underline underline-offset-2 decoration-2 decoration-teal-400">contact</a>
+	<a href="#contact" class="flex justify-end hover:underline underline-offset-2 decoration-2 decoration-sky-700">contact</a>
 
 </nav>

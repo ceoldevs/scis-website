@@ -5,11 +5,13 @@
 	// import AnimateSlide from "$lib/components/AnimateSlide.svelte";
 </script>
 
-<div class="z-[1]">
+<div>
 	<Header />
-	<main class="pt-16">
-		<slot />
-	</main>
-	<Footer />
-	
 </div>
+<main class="pt-16">
+	<slot />
+</main>
+<div class="mt-auto">
+	<Footer />
+</div>
+	
