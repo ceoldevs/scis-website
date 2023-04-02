@@ -3,7 +3,7 @@
 	import LatestNews from '$lib/components/home/LatestNews.svelte';
 </script>
 
-<div class="lpt:px-14 px-4 min-h-[70vh] lpt:bg-scis-building bg-matty-50 bg-no-repeat bg-cover flex flex-col gap-y-12 justify-center items-center">
+<div class="lpt:px-14 px-4 min-h-[70vh] bg-matty-50 bg-no-repeat bg-cover flex flex-col gap-y-12 justify-center items-center font-roboto-flex">
 	<h1 class="text-matty-800 font-roboto-flex lpt:text-6xl tbl:text-5xl text-4xl font-medium max-w-[60rem] text-center">Shaping future with Artificial Intelligence, Cloud computing and Internet of things</h1>
 	<div class="font-medium flex items-center lpt:flex-row tbl:flex-col flex-col gap-y-3">
 		<button class="tbl:text-base mbl-lg:text-sm rounded-full bg-sky-700 text-matty-50 tbl:py-4 tbl:px-8 px-5 py-3 hover:bg-transparent hover:text-sky-700 border-2 border-transparent hover:border-sky-700  transition-all duration-200">

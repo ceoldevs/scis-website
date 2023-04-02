@@ -23,8 +23,8 @@
 .font-roboto-flex {
   font-family: 'Roboto Flex head';
   font-style: normal;
-  font-stretch: 107%;
-  font-variation-settings: "opsz" 48, "slnt" 0, "GRAD" 25, "XTRA" 476, "YOPQ" 79, "YTAS" 724, "YTDE" -140, "YTFI" 688, "YTLC" 489, "YTUC" 615;
+  font-stretch: 121%;
+  font-variation-settings: 'GRAD' 61, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'opsz' 14;
   font-optical-sizing: auto;
 }
 
