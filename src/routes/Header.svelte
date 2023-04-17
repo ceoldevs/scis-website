@@ -54,7 +54,7 @@
 		},
 		{
 			name: "News",
-			link: base + "/news",
+			link: base + "/news-events",
 			sublinks: [],
 		},
 		{

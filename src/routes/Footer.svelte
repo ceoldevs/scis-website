@@ -45,16 +45,16 @@
             <hr>
             <div class="grid tbl:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4">
                 <a href={`${base}/about`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">About</a>
-                <a href={`${base}/news`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">News</a>
-                <a href={`${base}/academics/admissions`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Admissions</a>
+                <a href={`${base}/news-events`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">News</a>
+                <a href={`${base}/acad/admissions`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Admissions</a>
                 <ToolTip title="scislearn1.uohyd.ac.in">
                     <a target="_blank" rel="noreferrer" href="https://scislearn1.uohyd.ac.in/moodle" class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Moodle 1</a>
                 </ToolTip>
                 <ToolTip title="scislearn2.uohyd.ac.in">
                     <a target="_blank" rel="noreferrer" href="https://scislearn2.uohyd.ac.in/moodle" class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Moodle 2</a>
                 </ToolTip>
-                <a href={`${base}/academics/workshops`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Workshops</a>
-                <a href={`${base}/academics/careers`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Careers</a>
+                <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Workshops</a>
+                <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Careers</a>
                 <a href={`${base}/research/publications`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Research Publications</a>
             </div>
         </div>

@@ -2,7 +2,7 @@
   import Breadcrumb from "$lib/components/Breadcrumb.svelte";
   const flow = [
 	{name: "Home", link: "/"},
-	{name: "News", link: "/news"},
+	{name: "News", link: "/news-events"},
   ]
 
   
