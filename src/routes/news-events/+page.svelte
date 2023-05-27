@@ -5,8 +5,6 @@
 	{name: "News", link: "/news-events"},
   ]
 
-  
-
   const news = [
 	{
 		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",

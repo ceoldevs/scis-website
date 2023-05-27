@@ -21,10 +21,11 @@
             <div class="flex flex-col gap-y-4 col-span-4">
                 <h3> Programmes </h3>
                 <div class="flex flex-col gap-y-1">
-                    <a href={root + "/programmes/undergrad"} class="text-primary-light hover:underline decoration-primary-light decoration-1 text-xl">Undergraduate Programs</a>
+                    <a on:click={() => (style = "hidden")} href={root + "/programmes/undergrad"} class="text-primary-light hover:underline decoration-primary-light decoration-1 text-xl">Undergraduate Programs</a>
                     <span class="text-neutralvariant-40">
                         Join us after 12th in our Integrated Masters of Technology through JoSSA. 
                         <a 
+                            on:click={() => (style = "hidden")}
                             href={ root + "/programmes/undergrad/imtech" }
                             class="text-primary-light underline decoration-primary-light decoration-1"
                         >
@@ -33,17 +34,17 @@
                     </span>
                 </div>
                 <div class="flex flex-col gap-y-1">
-                    <a href={root + "/programmes/postgrad"} class="text-primary-light hover:underline decoration-primary-light decoration-1 text-xl">Postgradate Programs</a>
+                    <a on:click={() => (style = "hidden")} href={root + "/programmes/postgrad"} class="text-primary-light hover:underline decoration-primary-light decoration-1 text-xl">Postgradate Programs</a>
                     <span class="text-neutralvariant-40">
                         Finished your GATE? join us with 
-                        <a 
+                        <a on:click={() => (style = "hidden")} 
                             href={ root + "/programmes/postgrad/mtech" }
                             class="text-primary-light underline decoration-primary-light decoration-1"
                         >
                             Masters
                         </a> 
                         and 
-                        <a 
+                        <a on:click={() => (style = "hidden")} 
                             href={ root + "/programmes/postgrad/phd" }
                             class="text-primary-light underline decoration-primary-light decoration-1"
                         >
@@ -55,7 +56,7 @@
             </div>
             <div class="flex flex-col col-span-3 gap-y-6 justify-between">
                 <div class="flex flex-col">
-                    <a href= { root + "/admissions" } class="text-primary-light text-lg">
+                    <a on:click={() => (style = "hidden")} href= { root + "/admissions" } class="text-primary-light text-lg">
                         Admissions
                     </a>
                     <span class="text-neutralvariant-40">
@@ -63,7 +64,7 @@
                     </span>
                 </div>
                 <div class="flex flex-col">
-                    <a href= { root + "/programmes" } class="text-primary-light text-lg">
+                    <a on:click={() => (style = "hidden")} href= { root + "/programmes" } class="text-primary-light text-lg">
                         Syllabus
                     </a>
                     <span class="text-neutralvariant-40">
