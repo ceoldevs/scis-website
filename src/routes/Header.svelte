@@ -1,118 +1,114 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import uohyd from '$lib/images/uohyd.svg'
-	import {logicalPropertiesHorizontalSlide, horizontalSlide} from '$lib/components/slidetransitions'
-	import {sublinks} from '$lib/stores/sublinks'
+	import Uohyd from '$lib/components/uohyd.svelte';
 	import {base} from "$app/paths";
+	import AcadExpanded from '$lib/components/AcadExpanded.svelte';
 
-	let active = $page.url.pathname;
+	let showMenu = false;
+	let showAcadMobile = false;
 
-	const activePage = (optionPath: string, pathname: string) => {
-		const pattern = new RegExp('^' + optionPath) 
-		if (optionPath == base && optionPath !== active ) {
-			return ""
-		}
-		return (pattern.test(active)) ? "text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-sky-400" : ""
-	}
-	const options =  [
+	const menu = [
 		{
 			name: "Home", 
 			link: base + "/", 
-			sublinks: []
-		},
-		{
-			name: "Academics",
-			link: base + "/academics",
-			sublinks: [
-				{name: "Admissions", link: base + "/academics/admission"},
-				{name: "Programmes", link: base + "/academics/programmes"},
-				{name: "Programmes", link: base + "/academics/syllabus"},
-			]
-		},
-		{
-			name: "People",
-			link: base + "/people",
-			sublinks: [
-				{name: "Faculty", link: base + "/people/faculty"},
-				{name: "Visitors", link: base + "/people/visitors"},
-				{name: "Students", link: base + "/people/students"},
-				{name: "Staff", link: base + "/people/staff"},
-				{name: "Alumni", link: base + "/people/alumni"},
-			]
-		},
-		{
-			name: "Research",
-			link: base + "/research",
-			sublinks: [
-				{name: "Research Areas", link: base + "/research/research-areas"},
-				{name: "Funded Projects", link: base + "/research/funded-projects"},
-				{name: "Publications", link: base + "/research/publications"},
-				{name: "Linkages", link: base + "/research/linkages"},
-			]	
 		},
 		{
 			name: "News",
-			link: base + "/news",
-			sublinks: [],
+			link: base + "/news-events"
 		},
 		{
-			name: "Events",
-			link: base + "/events",
-			sublinks: [],
+			type: "expandable",
+			name: "Academics",
+			link: base + "/acad",
+			sublinks: [
+				{name: "All Programmes", link: "/programmes"},
+				{name: "I.M.Tech", link: "/programmes/imtech"},
+				{name: "M.Tech", link: "/programmes/mtech"},
+				{name: "PhD", link: "/programmes/phd"},
+				{name: "Admissions", link: "/admissions"},
+			],
+			// TODO: Write a resonable structure for this nested menu.
+		},
+		{
+			name: "Research",
+			link: base + "/research"
+		},
+		{
+			name: "About",
+			link: base + "/about"
 		},
 	]
 
-	let displayMenu = false;
-	// let sublinks = options[activeIndex].sublinks
-
 </script>
 
-<!-- {#if displayMenu}
-<div transition:logicalPropertiesHorizontalSlide={{direction: 'inline', duration: 500}} 
-	class="z-[10] fixed pt-28 w-screen h-screen flex bg-matty-900/90 backdrop-blur-lg px-24 overflow-hidden"
-	>
-	<div class="flex-1 flex flex-col gap-y-8">
-		{#each options as option, i }
-			<button 
-				class={ `w-min text-5xl flex font-semibold ${activePage(option.link, active)}` }
-				on:click={() => {
-					active = option.link
-					sublinks.set(option.sublinks)
-				}}
-			>
-				{#if option.sublinks?.length != 0}
-						<span>{option.name}</span>
+<div class="fixed w-full z-[1000]">
+	<div class="font-roboto-flex flex w-full justify-between lpt:px-12 tbl:px-6 px-2 py-1 bg-primary-95 underline decoration-1 border-b-[0.5px] border-b-outline-light/20 text-sm">
+		<div class="flex gap-x-6">
+			<a href="/people/students" class="hidden tbl:flex">Students</a>
+			<a href="/people/faculty" class="hidden tbl:flex">Faculty</a>
+			<a href="/people/alumni" class="hidden tbl:flex">Alumni</a>
+			<a href="/people" class="tbl:hidden flex">People</a>
+			<a href="/internal" class="text-primary-light underline decoration-primary-light">Internal Site</a>
+		</div>
+		<div>
+			<a href="/contactus"> Contact </a>
+		</div>
+	</div>
+	<nav class=" bg-background-light font-roboto-flex flex justify-between items-center w-full lpt-lg:px-12 lpt:px-8 tbl:px-6 px-2 py-6 border-b-[0.5px] border-b-outline-light/20">
+		<a href="/" class="flex items-center gap-2 font-medium max-w-[300px]">
+			<div class="min-w-[32px]">
+				<Uohyd />
+			</div>
+		<!-- <img src={uohyd} alt="uoh-logo" class="w-10"> -->
+			<span class="hidden lpt:flex leading-none">School of Computer and Information Sciences</span>
+			<span class="flex lpt:hidden">SCIS</span>
+		</a>
+		<div>
+			<div class="gap-4 hidden sm:flex items-center">
+				{#each menu as {link, name, type} }
+					{#if type === "expandable"}
+						<AcadExpanded root={link} />
+					{:else}
+						<a href={link}>{name}</a>
+					{/if}
+				{/each}
+			</div>
+			<button class="material-symbols-rounded flex sm:hidden" on:click={() => (showMenu = !showMenu) }>
+				{#if showMenu}
+					close
 				{:else}
-						<a href={option.link}>{option.name}</a>
+					menu
 				{/if}
 			</button>
-		{/each}
-	</div>
-	<div class="flex-1 flex flex-col gap-y-12">
-		{#if $sublinks.length != 0}
-			{#each $sublinks as sublink }
-				<a on:click={() => (displayMenu = false)} class={`${(sublink.link === $page.url.pathname) && "font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-sky-400"} w-fit text-xl`} href={sublink.link}>{sublink.name}</a>
-			{/each}
-		{/if}
-	</div>
-</div>
-{/if} -->
-<nav class="fixed border-b-2 border-matty-300/10 grid grid-cols-3 py-4 lpt-lg:px-24 lpt:px-14 px-4 w-screen z-[100] items-center bg-matty-50/70 backdrop-blur-md">
-	<span class="flex justify-start">
-		<button on:click={() => (displayMenu=!displayMenu)} class="material-symbols-rounded">
-			{#if displayMenu}
-				menu_open
-			{:else}
-				menu
-			{/if}
-		</button>
-	</span>
-	<div class="flex justify-center">
-		<a href={`${base}/`} class="flex items-center gap-3">
-			<img src={uohyd} alt="uoh-logo" >
-			<span class="font-medium">SCIS</span>
-		</a>
-	</div>
-	<a href="#contact" class="flex justify-end hover:underline underline-offset-2 decoration-2 decoration-sky-700">contact</a>
+		</div>
+	</nav>
 
-</nav>
+	{#if showMenu}
+		<div class="sm:hidden relative flex w-full min-h-screen bg-background-light justify-center"> 
+			<div class="flex flex-col text-5xl gap-y-8 mt-20">
+				{#each menu as item }
+					{#if item.type == "expandable"}
+						<div>
+							<button class="" on:click={() => (showAcadMobile = !showAcadMobile)}>
+								{item.name}
+								<span class="material-symbols-rounded">
+									{#if showAcadMobile }
+										expand_less
+									{:else}
+										expand_more
+									{/if}
+								</span>
+							</button>
+							<div class={((showAcadMobile) ? "flex" : "hidden") + " transition-all flex-col gap-y-4 mt-4 pl-8 text-2xl"}>
+								{#each item.sublinks as sublink}
+									<a href={sublink.link}>{sublink.name}</a>
+								{/each}
+							</div>
+						</div>
+					{:else}
+						<a on:click={() => (showMenu = false)} href={item.link}>{item.name}</a>
+					{/if}
+				{/each}
+			</div>
+		</div>
+	{/if}
+</div>

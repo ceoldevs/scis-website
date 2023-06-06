@@ -10,7 +10,7 @@
 			Read More about the program
 		</button>
         <div class="lpt:text-base tbl:text-sm text-sm group w-full lpt:pt-0 pt-4 flex tbl:justify-end justify-start tbl:pl-0 pl-4">
-            <a href="{base}/news" class="no-underline decoration-0 flex items-center">
+            <a href="{base}/news-events" class="no-underline decoration-0 flex items-center">
                 <span class="underline underline-offset-2 group-hover:decoration-2 decoration-sky-700">Read All News</span> <span class="no-underline material-symbols-rounded">arrow_right_alt</span>
             </a>
         </div>
