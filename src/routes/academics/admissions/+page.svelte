@@ -5,7 +5,7 @@
 
 <AnimateSlide>
 <div class="text-column">
-	<h1>How to play Sverdle</h1>
+	<h1>Admissions</h1>
 
 	<p>
 		Sverdle is a clone of <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>, the
