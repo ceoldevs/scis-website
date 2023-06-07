@@ -55,7 +55,7 @@
                 </ToolTip>
                 <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Workshops</a>
                 <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Careers</a>
-                <a href={`${base}/research/publications`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Research Publications</a>
+                <a href={`${base}/research`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Research Publications</a>
             </div>
         </div>
     </div>

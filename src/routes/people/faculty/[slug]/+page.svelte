@@ -82,7 +82,6 @@
                         {getResearch(research).title}
                         </span>
                         <a class="text-primary-light underline decoration-1" href={getResearch(research).ee}>Click here to read</a>
-                        
                     </li>
                 {/each}
                 </ul>
