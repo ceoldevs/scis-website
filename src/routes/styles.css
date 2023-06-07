@@ -20,13 +20,32 @@
   src: url(/assets/robotoflex.ttf);
 }
 
+@font-face {
+  font-family: 'Fraunces Var';
+  src: url('/assets/fraunces.ttf');
+}
+
 .font-roboto-flex {
+  font-family: 'Roboto Flex head';
+  font-style: normal;
+  font-stretch: 125%;
+  font-variation-settings: "slnt" 0, "GRAD" 38, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+  font-optical-sizing: auto;
+}
+
+.font-fraunces {
+  font-family: 'Fraunces Var';
+  font-style: normal;
+  font-variation-settings: 'SOFT' 0, 'WONK' 0;
+  font-optical-sizing: auto;
+}
+/* .font-roboto-flex {
   font-family: 'Roboto Flex head';
   font-style: normal;
   font-stretch: 125%;
   font-variation-settings: 'GRAD' 61, 'slnt' 0, 'XTRA' 468, 'XOPQ' 96, 'YOPQ' 79, 'YTLC' 514, 'YTUC' 712, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'opsz' 14;
   font-optical-sizing: auto;
-}
+} */
 
 @layer components {
   .card-zoom {
@@ -47,11 +66,12 @@
   .prose-custom {
     @apply lpt:prose-h1:text-6xl lpt-lg:prose-h1:text-7xl 
     lpt:prose-p:text-lg lpt:prose-a:text-lg prose-table:w-full 
+    lpt:prose-li:text-lg
     prose-table:border-collapse prose-table:table-auto prose-th:text-left 
     prose-th:border prose-td:border prose-th:p-4 prose-td:p-4 
     prose-a:underline-offset-2 hover:prose-a:decoration-2 
     prose-a:decoration-1 prose-a:decoration-sky-700 lpt:prose-pre:text-lg
-    prose-a:font-readable prose-img:rounded-3xl prose-img:border-[1px];
+    prose-img:rounded-3xl prose-img:border-[1px];
   }
 
 }
