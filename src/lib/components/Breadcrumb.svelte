@@ -8,7 +8,7 @@
     export let flow: Array<BreadType>;
 
 </script>
-<main class="mt-4 mb-8 flex gap-2 text-md">
+<main class="mt-4 mb-8 flex gap-2 text-base">
     {#each flow as {name, link}, i}
         {#if i === flow.length - 1}
             <a href={link} class="flex cursor-pointer hover:underline hover:decoration-matty-900 hover:decoration-[1px]">{name}</a>
