@@ -17,6 +17,7 @@
 		"@sveltejs/kit": "^1.0.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/cookie": "^0.5.1",
+		"@types/qs": "^6.9.7",
 		"autoprefixer": "^10.4.13",
 		"gh-pages": "^4.0.0",
 		"postcss": "^8.4.21",
