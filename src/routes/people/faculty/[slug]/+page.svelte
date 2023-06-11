@@ -4,7 +4,7 @@
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
 
 	export let data:any;
-
+    console.log(data);
     const getResearch: any = (rt:any) => Object.values(rt)[0];
 
 	const flow = [
