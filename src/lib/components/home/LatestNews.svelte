@@ -1,17 +1,55 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
+	export let first:any;
+	export let other:any;
+	export let styleFixed: string;
 </script>
-<div class="lpt-lg:px-24 lpt:px-14 px-4 py-16 bg-sky-50">
-	<div class="w-fit font-medium lpt:text-lg text-md text-transparent bg-clip-text bg-gradient-to-r text-sky-700">Latest News</div>
-	<h1 class="font-roboto-flex mt-6 mb-10 lpt:text-4xl tbl:text-2xl text-2xl font-medium max-w-[85rem]">
-		Become part of our school with the re-defined Integrated Masters program through JOSSA
-	</h1>
-		<button class=" lpt:text-base tbl:text-sm text-sm rounded-full flex-1 bg-sky-700 text-matty-50 tbl:py-4 tbl:px-8 px-4 py-3 font-medium  hover:bg-transparent hover:text-sky-700 border-2 border-transparent hover:border-sky-700 transition-all duration-200">
-			Read More about the program
-		</button>
-        <div class="lpt:text-base tbl:text-sm text-sm group w-full lpt:pt-0 pt-4 flex tbl:justify-end justify-start tbl:pl-0 pl-4">
-            <a href="{base}/news-events" class="no-underline decoration-0 flex items-center">
-                <span class="underline underline-offset-2 group-hover:decoration-2 decoration-sky-700">Read All News</span> <span class="no-underline material-symbols-rounded">arrow_right_alt</span>
-            </a>
-        </div>
+<div class="pt-10 font-roboto-flex bg-on-primarycont-light relative flex flex-col lpt:flex-row">
+    <div class={`tbl:relative w-full lpt:w-[50vw] lpt-lg:w-[58vw] lpt:py-5 pb-5 bg-on-primarycont-light lpt:bottom-0 lpt:h-[90vh] flex flex-col text-on-primary-light ${styleFixed}`}>
+		<img 
+			class="object-cover w-full lpt:h-[50vh] h-64"
+			src={`http://localhost:1337${first.attributes.CoverImage.data.attributes.url}`}
+			alt="Test"
+		/>
+		<div class="lpt-lg:px-10 lpt:px-6 tbl:px-6 px-2 pt-4 flex flex-col gap-y-4">
+			<h1 class="font-fraunces lpt-lg:text-4xl lpt:text-3xl text-3xl">{first.attributes.Title}</h1>
+			<div>
+				{first.attributes.Content.slice(0,255)}...
+			</div>
+			<div class="">
+				{#each first.attributes.Actions as action}
+					<a class="flex items-center gap-x-2 text-primary-90" href={action.link}>{action.name} <span class="material-symbols-rounded">{action.icon}</span></a>
+				{/each}
+			</div>
+		</div>
+    </div>
+    <div class="w-full ml-0 lpt:w-[50vw] lpt:ml-[50vw] lpt-lg:w-[42vw] lpt-lg:ml-[58vw] bg-primarycont-light flex flex-col">
+		<div class="py-8 lpt-lg:px-10 tbl:px-6 px-2 flex flex-col gap-y-6">
+			{#each other as item}
+				<img 
+					class="object-cover w-full lpt-lg:h-80 lpt:h-56"
+					src={`http://localhost:1337${item.attributes.CoverImage.data.attributes.url}`}
+					alt="Test"
+				/>
+				<div class="flex flex-col gap-y-4">
+					<h2 class="font-fraunces text-2xl">{item.attributes.Title}</h2>
+					<div>
+						{item.attributes.Content.slice(0,155)}...
+					</div>
+					<div>
+						{#each item.attributes.Actions as action}
+							<a class="flex items-center gap-x-2 text-primary-light" href={action.link}>{action.name} <span class="material-symbols-rounded">{action.icon}</span></a>
+						{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
+		<div class="p-4 z-[100] bg-primary-20 flex items-center justify-between">
+			<div class="text-on-primary-light">
+				Want to know more?
+			</div>
+			<a href="/news-events" class="text-primary-80 flex items-center gap-x-2">Open News <span class="material-symbols-rounded">arrow_outward</span></a>
+
+		</div>
+    </div>
 </div>
