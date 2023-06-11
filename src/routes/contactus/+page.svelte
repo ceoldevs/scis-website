@@ -4,7 +4,7 @@
 
     const flow = [
         {name: "Home", link: "/"},
-        {name: "Contact Us", link: "/people/contacus"},
+        {name: "Contact Us", link: "/contactus"},
     ];
 </script>
 
