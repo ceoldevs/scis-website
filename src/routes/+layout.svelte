@@ -8,7 +8,7 @@
 <div>
 	<Header />
 </div>
-<main class="pt-16">
+<main class="pt-16 min-h-[90vh]">
 	<slot />
 </main>
 <div class="mt-auto">
