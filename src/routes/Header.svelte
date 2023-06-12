@@ -6,6 +6,8 @@
 	let showMenu = false;
 	let showAcadMobile = false;
 
+	let style:string;
+
 	const menu = [
 		{
 			name: "Home", 
@@ -24,6 +26,7 @@
 				{name: "I.M.Tech", link: "/programmes/imtech"},
 				{name: "M.Tech", link: "/programmes/mtech"},
 				{name: "PhD", link: "/programmes/phd"},
+				{name: "MCA", link: "/programmes/mca"},
 				{name: "Admissions", link: "/admissions"},
 			],
 			// TODO: Write a resonable structure for this nested menu.
@@ -43,18 +46,18 @@
 <div class="fixed w-full z-[1000]">
 	<div class="font-roboto-flex flex w-full justify-between lpt:px-12 tbl:px-6 px-2 py-1 bg-primary-95 underline decoration-1 border-b-[0.5px] border-b-outline-light/20 text-sm">
 		<div class="flex gap-x-6">
-			<a href="/people/students" class="hidden tbl:flex">Students</a>
-			<a href="/people/faculty" class="hidden tbl:flex">Faculty</a>
-			<a href="/people/alumni" class="hidden tbl:flex">Alumni</a>
-			<a href="/people" class="tbl:hidden flex">People</a>
-			<a href="/internal" class="text-primary-light underline decoration-primary-light">Internal Site</a>
+			<a  on:click={() => (style = "hidden")} href="/people/students" class="hidden tbl:flex">Students</a>
+			<a  on:click={() => (style = "hidden")} href="/people/faculty" class="hidden tbl:flex">Faculty</a>
+			<a on:click={() => (style = "hidden")}  href="/people/alumni" class="hidden tbl:flex">Alumni</a>
+			<a on:click={() => (style = "hidden")}  href="/people" class="tbl:hidden flex">People</a>
+			<a on:click={() => (style = "hidden")}  href="/internal" class="text-primary-light underline decoration-primary-light">Internal Site</a>
 		</div>
 		<div>
-			<a href="/contactus"> Contact </a>
+			<a on:click={() => (style = "hidden")}  href="/contactus"> Contact </a>
 		</div>
 	</div>
 	<nav class=" bg-background-light font-roboto-flex flex justify-between items-center w-full lpt-lg:px-12 lpt:px-8 tbl:px-6 px-2 py-6 border-b-[0.5px] border-b-outline-light/20">
-		<a href="/" class="flex items-center gap-2 font-medium max-w-[300px]">
+		<a on:click={() => (style = "hidden")}  href="/" class="flex items-center gap-2 font-medium max-w-[300px]">
 			<div class="min-w-[32px]">
 				<Uohyd />
 			</div>
@@ -66,9 +69,9 @@
 			<div class="gap-4 hidden sm:flex items-center">
 				{#each menu as {link, name, type} }
 					{#if type === "expandable"}
-						<AcadExpanded root={link} />
+						<AcadExpanded root={link} style={style}/>
 					{:else}
-						<a href={link}>{name}</a>
+						<a on:click={() => (style = "hidden")} href={link}>{name}</a>
 					{/if}
 				{/each}
 			</div>

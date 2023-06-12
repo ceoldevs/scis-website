@@ -1,20 +1,36 @@
-<script>
-	import { base } from '$app/paths';
-	import LatestNews from '$lib/components/home/LatestNews.svelte';
+<script lang="ts">
+	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+
+	const flow = [
+		{name: "Home", link: "/"},
+		{name: "Programmes", link: "/acad/programmes"},
+	]
 </script>
 
-<div class="lpt:px-14 px-4 min-h-[70vh] bg-matty-50 bg-no-repeat bg-cover flex flex-col gap-y-12 justify-center items-center font-roboto-flex">
-	h
-</div>
-<!-- <div class="grid grid-cols-2">
-	<div class="card-zoom">
-		<div class="relative bg-discussion h-[28rem] bg-no-repeat bg-cover card-zoom-image">
+<main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
+	<Breadcrumb {flow} />
+	<div class="prose prose-matty prose-custom max-w-5xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">
+		<div class="flex flex-col">
+			<h2 class="font-fraunces">Undergraduate Courses</h2>
+			<div class="flex items-center gap-x-2">
+				<a href="/acad/programmes/undergrad/imtech">Integrated M.Tech - 5 year course </a>
+				<span class="material-symbols-rounded">arrow_outward</span>
+			</div>
+			<hr class="my-6" />
+			<h2 class="font-fraunces">Postgraduate Courses</h2>
+			<div class="flex items-center gap-x-2">
+				<a href="/acad/programmes/postgrad/mtech">M.Tech - 2 year course </a>
+				<span class="material-symbols-rounded">arrow_outward</span>
+			</div>
+			<div class="flex items-center gap-x-2">
+				<a href="/acad/programmes/postgrad/mca">MCA - 2 year course </a>
+				<span class="material-symbols-rounded">arrow_outward</span>
+			</div>
+			<div class="flex items-center gap-x-2">
+				<a href="/acad/programmes/postgrad/phd">PhD</a>
+				<span class="material-symbols-rounded">arrow_outward</span>
+			</div>
+
 		</div>
-		<div class="card-zoom-text text-3xl font-medium">Collaborate</div>
 	</div>
-	<div class="card-zoom">
-		<div class="relative bg-achieve h-[28rem] bg-no-repeat bg-cover card-zoom-image">
-		</div>
-		<div class="card-zoom-text text-3xl font-medium">Achieve</div>
-	</div>
-</div> -->
+</main>
