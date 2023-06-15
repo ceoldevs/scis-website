@@ -18,7 +18,7 @@
 
 let courses = [
 	{name: 'phd', link: '/acad/programmes/postgrad/phd'},
-	{name: 'imtech', link: '/acad/programmes/undegrad/imtech'},
+	{name: 'imtech', link: '/acad/programmes/undergrad/imtech'},
 	{name: 'mtech', link: '/acad/programmes/postgrad/mtech'},
 	{name: 'mca', link: '/acad/programmes/postgrad/mca'},
 ]
