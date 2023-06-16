@@ -57,6 +57,10 @@
                 <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Careers</a>
                 <a href={`${base}/research`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Research Publications</a>
             </div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0967772996923!2d78.32964787434173!3d17.455081483443717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9305e8250fbf%3A0x16e1878d01ded942!2sSchool%20of%20Computer%20and%20Information%20Sciences!5e0!3m2!1sen!2sin!4v1686863686672!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
         </div>
     </div>
 </footer>
