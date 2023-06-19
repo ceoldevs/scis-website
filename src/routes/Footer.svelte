@@ -12,24 +12,24 @@
                 <span class="text-xl font-medium">School of Computer and Information Sciences</span>
             </div>
             <div class="grid tbl:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4">
-                <a href={`${base}/about`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">About</a>
-                <a href={`${base}/news-events`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">News</a>
-                <a href={`${base}/acad/admissions`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Admissions</a>
+                <a href={`${base}/about`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">About</a>
+                <a href={`${base}/news-events`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">News</a>
+                <a href={`${base}/acad/admissions`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Admissions</a>
                 <ToolTip title="scislearn1.uohyd.ac.in">
-                    <a target="_blank" rel="noreferrer" href="https://scislearn1.uohyd.ac.in/moodle" class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Moodle 1</a>
+                    <a target="_blank" rel="noreferrer" href="https://scislearn1.uohyd.ac.in/moodle" class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Moodle 1</a>
                 </ToolTip>
                 <ToolTip title="scislearn2.uohyd.ac.in">
-                    <a target="_blank" rel="noreferrer" href="https://scislearn2.uohyd.ac.in/moodle" class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Moodle 2</a>
+                    <a target="_blank" rel="noreferrer" href="https://scislearn2.uohyd.ac.in/moodle" class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Moodle 2</a>
                 </ToolTip>
-                <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Workshops</a>
-                <a href={`${base}/#`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Careers</a>
-                <a href={`${base}/research`} class="text-sky-700 hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-sky-700">Research Publications</a>
+                <a href={`${base}/#`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Workshops</a>
+                <a href={`${base}/#`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Careers</a>
+                <a href={`${base}/research`} class="text-primary-light hover:underline hover:underline-offset-2 group-hover:decoration-2 decoration-primary-light">Research Publications</a>
             </div>
             <div class="flex">
                 <ToolTip title="location" icon="location_on">
                     <div class="flex items-start gap-4">
                         <span class="material-symbols-rounded">domain</span>
-                        <a class="underline underline-offset-2 group-hover:decoration-2 decoration-sky-700" href="https://goo.gl/maps/WxQiknpKWdpo1dT3A">
+                        <a class="underline underline-offset-2 group-hover:decoration-2 decoration-primary-light" href="https://goo.gl/maps/WxQiknpKWdpo1dT3A">
                             Dean | 
                             SCIS, University of Hyderabad <br>
                             P.O. Central University, 
@@ -41,11 +41,11 @@
             <div class="flex gap-4 flex-wrap">
                 <div class="flex items-center gap-4">
                     <span class="material-symbols-rounded">mail</span>
-                    <a href="mailto:officescis@uohyd.ac.in" class="underline decoration-sky-700 underline-offset-2">officescis@uohyd.ac.in</a>
+                    <a href="mailto:officescis@uohyd.ac.in" class="underline decoration-primary-light underline-offset-2">officescis@uohyd.ac.in</a>
                 </div>
                 <div class="flex items-center gap-4">
                     <span class="material-symbols-rounded">call</span>
-                    <a href="tel:91-040-23134101" class="underline decoration-sky-700 underline-offset-2">91-040-23134101</a>
+                    <a href="tel:91-040-23134101" class="underline decoration-primary-light underline-offset-2">91-040-23134101</a>
                     
                 </div>
             </div>
@@ -57,7 +57,7 @@
     </div>
     <hr class="mt-5 mb-3 border-gray-400"/>
     <div class="flex flex-row justify-between">
-        <span>Copyright &#169;  2023 All right reserved </span>
-        <span>SCIS Web Team</span>
+        <span class="text-sm sm:text-lg">Copyright &#169;  2023 All right reserved </span>
+        <span class="text-sm sm:text-lg">SCIS Web Team</span>
     </div>
 </footer>
