@@ -4,6 +4,7 @@
   	import { afterUpdate } from 'svelte';
 	export let data: any;
 
+	
 // 	let markdownContent = '';
 
 // 	onMount(async () => {
@@ -11,7 +12,7 @@
 //     if (response.ok) {
 //       markdownContent = await response.text();
 //     } else {
-//       console.error('Error fetching Markdown file:', response.status);
+// 		console.error('Error fetching Markdown file:', response.status);
 //     }
 //   });
 
@@ -124,7 +125,7 @@
 
 				</div>
 			{:else}
-			<div class="flex flex-col justify-center">
+			<div class="flex flex-col justify-center" >
 				<h2 class="font-sans font-medium text-3xl mb-5">
 					Want to join {record.attributes.course}
 				</h2>

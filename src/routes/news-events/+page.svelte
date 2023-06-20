@@ -1,80 +1,65 @@
-<script>
+<script lang="ts">
+    import { base } from "$app/paths";
   import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+  
   const flow = [
 	{name: "Home", link: "/"},
 	{name: "News", link: "/news-events"},
   ]
 
-  const news = [
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-  ]
+  export let data:any ;
+  
+  function formatTimestamp(timestamp: string | Date) {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  }
 
-  const headline = news[0];
-  const othernews = news.slice(1);
 
 </script>
 
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-16">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<Breadcrumb flow={flow}/>
-	<div class="grid grid-cols-5 gap-16">
-		<div class="flex col-span-2">
-			<div class="bg-matty-900 flex flex-col text-matty-50 rounded-3xl">
-				<img class="w-full h-[20rem] object-cover rounded-t-3xl" src={headline.img} alt={headline.title}>
-				<div class="px-12 py-8 flex flex-col gap-4">
-					<h1 class="text-3xl">
-						{headline.title}
-					</h1>
-					<div class="flex place-items-stretch">
-						<div class="flex-1">{headline.date}</div>
-						<div>{headline.readtime}</div>
+
+	 <div class ="md:flex flex-row">
+		<div class="flex flex-col gap-y-5 basis-3/4 mr-8 pr-8 border-r-2">
+			{#each data.data as newsItem}
+			<div class="flex flex-row">
+				<div class="basis-3/4 flex flex-col">
+					<div>
+						<h1 class="text-3xl font-fraunces">
+							{newsItem.attributes.Title}
+						</h1>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-span-3 flex flex-col gap-8">
-			{#each othernews as item }
-			<div class="flex items-start">
-				<img class="w-80 object-contain rounded-3xl" src={item.img} alt={item.title}>
-				<div class="px-12 py-8 pt-0 flex flex-col gap-4">
-					<h1 class="text-2xl">
-						{item.title}
-					</h1>
-					<div class="flex place-items-stretch text-sm">
-						<div class="flex-1"> {item.date} </div>
-						<div>{item.readtime}</div>
+					{#if newsItem.attributes.eventTimeDetails != null}
+						<p><i class="fa fa-calendar"/> {newsItem.attributes.eventTimeDetails}</p>
+
+					{/if}
+					<div class="font-roboto-flex prose prose-matty mb-2">
+						<p class="mb-1" >{newsItem.attributes.Description}</p>
+						<h4 class="font-"> by {newsItem.attributes.writer.data.attributes.username},  {formatTimestamp(newsItem.attributes.writer.data.attributes.updatedAt)}</h4>
 					</div>
+					<a href="/news-events/{newsItem.attributes.Slug}" class="font-medium font-roboto-flex text-sky-300 hover:text-sky-600 underline underline-offset-2">Link to check it out!! &rarr;</a>
 				</div>
-			</div>
+				<div class="basis-1/4">
+					<img class="w-[15rem] h-[15rem] object-cover rounded-t-3xl relative" src={newsItem.attributes.CoverImage} alt={newsItem.attributes.Title}/>
+				</div>
+			</div> 
+			<hr>
+
 			{/each}
 		</div>
+
+	
+		<div class="basis-1/4">
+			<h1 class="text-3xl mb-5">Spotlight</h1>
+			{#each data.data as events}
+				<div class="mb-7 font-Inter">
+				<a href='/news-events/{events.attributes.Slug}' class="text-xl underline underline-offset-2">{events.attributes.Title}</a>
+				</div>
+			{/each}
+		</div> 
 	</div>
+	
+	
 </main>
