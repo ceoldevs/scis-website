@@ -6,7 +6,6 @@ export const load = async ({ fetch, params }: {fetch: any, params: any}) => {
     try {
         const res = await fetch(url);
         const item = await res.json();
-        console.log(item);
         return {
           data: item.data[0],
         };
