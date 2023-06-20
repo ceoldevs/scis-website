@@ -1,80 +1,78 @@
-<script>
+<script lang="ts">
+    import { base } from "$app/paths";
   import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+  
   const flow = [
 	{name: "Home", link: "/"},
 	{name: "News", link: "/news-events"},
   ]
 
-  const news = [
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-	{
-		img: "http://herald.uohyd.ac.in/wp-content/uploads/2023/01/Tejaswi_IMG.jpg",
-		title: "S.Tejaswi awarded for the best paper award in International conference on Distributed Computing and Intelligent Technology 2023",
-		date: "19 Aug 2022",
-		readtime: "1m read",
-	},
-  ]
+  export let data:any ;
+  
+  function formatTimestamp(timestamp: string | Date) {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  }
 
-  const headline = news[0];
-  const othernews = news.slice(1);
+  function toCapitalCase(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
 </script>
 
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-16">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<Breadcrumb flow={flow}/>
-	<div class="grid grid-cols-5 gap-16">
-		<div class="flex col-span-2">
-			<div class="bg-matty-900 flex flex-col text-matty-50 rounded-3xl">
-				<img class="w-full h-[20rem] object-cover rounded-t-3xl" src={headline.img} alt={headline.title}>
-				<div class="px-12 py-8 flex flex-col gap-4">
-					<h1 class="text-3xl">
-						{headline.title}
-					</h1>
-					<div class="flex place-items-stretch">
-						<div class="flex-1">{headline.date}</div>
-						<div>{headline.readtime}</div>
+
+	 <div class ="grid grid-cols-8">
+		<div class="flex flex-col gap-y-5 lpt:col-span-6 col-span-8 lpt:mr-4 lpt:pr-4 lpt:border-r-2">
+			{#each data.data as newsItem}
+			<a href="/news-events/{newsItem.attributes.Slug}" class="flex lpt:flex-row flex-col-reverse gap-x-4 group">
+				<div class="flex-1 flex flex-col">
+					<div>
+						<h1 class="text-3xl font-fraunces group-hover:underline">
+							{newsItem.attributes.Title}
+						</h1>
+					</div>
+					{#if newsItem.attributes.eventTimeDetails != null}
+						<p class="flex items-center gap-x-2 my-2"><span class="material-symbols-rounded">calendar_month</span> {newsItem.attributes.eventTimeDetails}</p>
+
+					{/if}
+					<div class="font-roboto-flex prose prose-matty mb-2">
+						<p class="mb-1" >{newsItem.attributes.Description ?? ""}</p>
+						<p class="font-roboto-flex"> by {toCapitalCase(newsItem.attributes.writer.data.attributes.username)},  {formatTimestamp(newsItem.attributes.writer.data.attributes.updatedAt)}</p>
+					</div>
+					<div class="flex flex-wrap">
+						{#each newsItem.attributes.Actions as action}
+							<a href={action.link} class="flex items-center gap-x-2 font-medium font-roboto-flex text-primary-light hover:underline underline-offset-2">
+								{action.name}
+								<span class=" material-symbols-rounded">{action.icon}</span>
+							</a>
+						{/each}
+						<!-- <a href="/news-events/{newsItem.attributes.Slug}" class="font-medium font-roboto-flex text-primary-light hover:underline underline-offset-2"></a> -->
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="col-span-3 flex flex-col gap-8">
-			{#each othernews as item }
-			<div class="flex items-start">
-				<img class="w-80 object-contain rounded-3xl" src={item.img} alt={item.title}>
-				<div class="px-12 py-8 pt-0 flex flex-col gap-4">
-					<h1 class="text-2xl">
-						{item.title}
-					</h1>
-					<div class="flex place-items-stretch text-sm">
-						<div class="flex-1"> {item.date} </div>
-						<div>{item.readtime}</div>
-					</div>
-				</div>
-			</div>
+				<img class="lpt-lg:w-[20rem] lpt:w-[15rem] max-h-50 object-cover relative" src={`http://localhost:1337${newsItem.attributes.CoverImage.data.attributes.url}`} alt={newsItem.attributes.CoverImage.data.attributes.name}/>
+			</a> 
+			<hr>
+
 			{/each}
 		</div>
+
+		<div class="lpt:col-span-2 col-span-8">
+			<h1 class="text-3xl mb-5 font-fraunces">Spotlight</h1>
+			<ul class="prose prose-matty prose-custom flex flex-col">
+			{#each data.spotlight.data as events}
+				<li>
+					<a href='/news-events/{events.attributes.Slug}' class="font-roboto-flex text-lg underline underline-offset-2">{events.attributes.Title}</a>
+				</li>
+			{/each}
+			</ul>
+			<!-- <div class="mt-16">
+				Join our newsletter to get constant 
+			</div> -->
+		</div> 
 	</div>
+	
+	
 </main>
