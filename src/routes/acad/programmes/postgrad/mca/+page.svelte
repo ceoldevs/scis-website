@@ -8,7 +8,7 @@
 	const flow = [
 		{name: "Home", link: "/"},
 		{name: "Programmes", link: "/acad/programmes"},
-		{name: "PhD", link: "/acad/programmes/postgrad/phd"},
+		{name: "MCA", link: "/acad/programmes/postgrad/mca"},
 	]
 </script>
 
@@ -16,10 +16,10 @@
 	<Breadcrumb {flow} />
 	<div class="prose prose-matty prose-custom max-w-5xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">
 		<h2 class="font-fraunces text-font-medium text-4xl">
-			PhD programme
+			MCA programme
 		</h2>
 		<div class="prose-h2:font-fraunces">
-			{@html marked(data.data.attributes.phd.content)}
+			{@html marked(data.data.attributes.mca.content)}
 		</div>
 	</div>
 </main>

@@ -10,7 +10,7 @@
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10">
     <Breadcrumb flow={flow} />
     <div class="font-roboto-flex prose prose-matty lpt:text-xl tbl:text-lg text-base text-matty-900 max-w-5xl">
-        <h1 class="font-normal lpt:text-5xl tbl:text-4xl text-3xl">
+        <h1 class="font-fraunces font-medium lpt:text-5xl tbl:text-4xl text-3xl">
             Welcome to SCIS, University of Hyderabad: Where Passion for Technology Meets a Comprehensive Education and a Thriving Community. Explore Our <ToolTip title="View Programs"><span class="underline decoration-2 decoration-sky-700">Dynamic Programs</span></ToolTip>  ,  <ToolTip title="Check Infrastructure"><span class="underline decoration-2 decoration-sky-700">Cutting-Edge Facilities</span></ToolTip>, and Endless Opportunities for Growth and Impact.
         </h1>
         <img class="selection:bg-matty-900/60 lpt:mb-2 lpt:ml-5 lpt:float-right my-0 mx-auto rounded-lg " src="/assets/about.png" alt="about page's group" />

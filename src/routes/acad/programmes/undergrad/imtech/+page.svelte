@@ -1,15 +1,23 @@
-<div class="lpt:px-14 px-4 min-h-[70vh] bg-matty-50 bg-no-repeat bg-cover flex flex-col gap-y-12 justify-center items-center font-roboto-flex">
-	h
-</div>
-<!-- <div class="grid grid-cols-2">
-	<div class="card-zoom">
-		<div class="relative bg-discussion h-[28rem] bg-no-repeat bg-cover card-zoom-image">
+<script lang="ts">
+	import { marked } from 'marked';
+	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+	export let data: any;
+
+	const flow = [
+		{name: "Home", link: "/"},
+		{name: "Programmes", link: "/acad/programmes"},
+		{name: "I.M.Tech", link: "/acad/programmes/undergrad/imtech"},
+	]
+</script>
+
+<main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
+	<Breadcrumb {flow} />
+	<div class="prose prose-matty prose-custom max-w-5xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">
+		<h2 class="font-fraunces text-font-medium text-4xl">
+			I.M.Tech programme
+		</h2>
+		<div class="prose-h2:font-fraunces">
+			{@html marked(data.data.attributes.imtech.content)}
 		</div>
-		<div class="card-zoom-text text-3xl font-medium">Collaborate</div>
 	</div>
-	<div class="card-zoom">
-		<div class="relative bg-achieve h-[28rem] bg-no-repeat bg-cover card-zoom-image">
-		</div>
-		<div class="card-zoom-text text-3xl font-medium">Achieve</div>
-	</div>
-</div> -->
+</main>

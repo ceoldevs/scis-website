@@ -12,17 +12,8 @@ export const load = async ({ fetch }: { fetch: any }) => {
 	// 	homeContent: true
 	// },
     populate: {
-		mca: {
-			fields: ['title', 'description']
-		},
 		mtech: {
-			fields: ['title', 'description']
-		},
-		imtech: {
-			fields: ['title', 'description']
-		},
-		phd: {
-			fields: ['title', 'description']
+			fields: ['title', 'description', 'content']
 		},
 	},
   });

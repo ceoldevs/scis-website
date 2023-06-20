@@ -4,7 +4,6 @@
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
 
 	export let data:any;
-    console.log(data);
     const getResearch: any = (rt:any) => Object.values(rt)[0];
 
 	const flow = [
@@ -13,25 +12,6 @@
 		{name: "Faculty", link: "/people/faculty"},
 		{name: data.data.attributes.name, link: `/people/faculty/${data.data.attributes.siteId}`},
 	]
-
-	async function getFacultyData() {
-		try {
-			const res = await fetch(`http://localhost:1337/api/faculties?populate=*`);
-			const text = await res.json();
-
-			if (res.ok) {
-				return text;
-			} else {
-				throw new Error(text);
-			}
-		} catch (e) {
-			throw e;
-		}
-	}
-	
-	let promise = getFacultyData();
-
-	// let promise = fetch("http://localhost:1337/api/faculties")
 
 </script>
 
@@ -43,7 +23,7 @@
                 class="w-48 h-60 object-cover rounded-xl"
                 src={`http://localhost:1337${data.data.attributes.display_pic.data.attributes.url}`} alt={data.data.attributes.siteId} 
             />
-            <h1 class="my-4 text-4xl">{data.data.attributes.name}</h1>
+            <h1 class="my-4 text-4xl font-fraunces">{data.data.attributes.name}</h1>
         </div>
         <div class="text-neutralvariant-30 prose mt-4">
             <b class="not-prose"> Education: </b>
@@ -71,8 +51,30 @@
 
     <div class="prose">
         <h3>Researches:</h3>
-        <div>
-            {#await promise}
+        <div class="flex flex-col gap-y-4">
+            <!-- {console.log(data.data.attributes.research_papers.data)} -->
+            {#each data.data.attributes.research_papers.data as {attributes}}
+                <div class="text-xl font-fraunces text-neutral-10">{attributes.title}</div>
+                <div class="text-sm not-prose text-neutral-40">
+                    {#each attributes.authors as author, i}
+                        {#if i === 0}
+                            <a href={author.link} target="_blank" rel="noreferrer" class="underline decoration-1">{author.name}</a>
+                        {:else}
+                            , <a href={author.link} target="_blank" rel="noreferrer" class="underline decoration-1">{author.name}</a>
+                            
+                        {/if}
+                    {/each}
+                </div>
+            {/each}
+        <blockquote class="bg-primary-95 border-primary-40 text-neutralvariant-30 w-fit pr-8">
+            Not all research papers added yet, the content mods are working on it. So if you see less or no papers, they will soon be uploaded.
+            <br>
+            Meanwhile checkout {data.data.attributes.name}'s 
+            <a target="_blank" rel="noreferrer" href={data.data.attributes.dblp}>DBLP Page</a> 
+            and 
+            <a target="_blank" rel="noreferrer" href={data.data.attributes.scopus}>Scopus Page</a>
+        </blockquote>
+            <!-- {#await promise}
                 ...loading researches
             {:then researches} 
                 <ul>
@@ -82,7 +84,6 @@
                         {getResearch(research).title}
                         </span>
                         <a class="text-primary-light underline decoration-1" href={getResearch(research).ee}>Click here to read</a>
-                        
                     </li>
                 {/each}
                 </ul>
@@ -93,7 +94,7 @@
 						Looks like our <span class="text-primary-40">data servers</span> are down &#128531;. Please try later
 					</span>
 				</div>
-            {/await}
+            {/await} -->
         </div>
     </div>
 </main>

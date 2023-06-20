@@ -2,7 +2,7 @@
 <script>
     export let root = "/acad";
     let megamenu = false;
-    let style = "hidden";
+    export let style = "hidden";
 </script>
 
 <div class="cursor-pointer ">
@@ -23,7 +23,7 @@
                 <div class="flex flex-col gap-y-1">
                     <a on:click={() => (style = "hidden")} href={root + "/programmes/undergrad"} class="text-primary-light hover:underline decoration-primary-light decoration-1 text-xl">Undergraduate Programs</a>
                     <span class="text-neutralvariant-40">
-                        Join us after 12th in our Integrated Masters of Technology through JoSSA. 
+                        Join us after 12th in our  <b>Integrated Masters of Technology</b> through JoSSA. 
                         <a 
                             on:click={() => (style = "hidden")}
                             href={ root + "/programmes/undergrad/imtech" }
@@ -41,14 +41,20 @@
                             href={ root + "/programmes/postgrad/mtech" }
                             class="text-primary-light underline decoration-primary-light decoration-1"
                         >
-                            Masters
+                            M.Tech
+                        </a>,
+                        <a on:click={() => (style = "hidden")} 
+                            href={ root + "/programmes/postgrad/mca" }
+                            class="text-primary-light underline decoration-primary-light decoration-1"
+                        >
+                            MCA
                         </a> 
                         and 
                         <a on:click={() => (style = "hidden")} 
                             href={ root + "/programmes/postgrad/phd" }
                             class="text-primary-light underline decoration-primary-light decoration-1"
                         >
-                            Doctoral
+                            PhD
                         </a> 
                         programs in Artificial Intelligence, Computer Science and Information Technologies in Banking.
                     </span>
@@ -64,11 +70,11 @@
                     </span>
                 </div>
                 <div class="flex flex-col">
-                    <a on:click={() => (style = "hidden")} href= { root + "/programmes" } class="text-primary-light text-lg">
-                        Syllabus
+                    <a on:click={() => (style = "hidden")} href= { root + "/placements" } class="text-primary-light text-lg">
+                        Placements
                     </a>
                     <span class="text-neutralvariant-40">
-                        Checkout the syllabus of the course you are interested or studying in.
+                        Checkout the placements happening in the university.
                     </span>
                 </div>
             </div>
