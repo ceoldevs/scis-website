@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+    import Metatag from "./Metatag.svelte";
 
 	const flow = [
 		{name: "Home", link: "/"},
@@ -8,6 +9,7 @@
 	]
 </script>
 
+<Metatag />
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
 	<Breadcrumb {flow} />
 	<div class="prose prose-matty prose-custom max-w-5xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">

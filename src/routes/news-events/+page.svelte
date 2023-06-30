@@ -1,6 +1,7 @@
 <script lang="ts">
     import { base } from "$app/paths";
   import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+    import Metatag from "./Metatag.svelte";
   
   const flow = [
 	{name: "Home", link: "/"},
@@ -20,6 +21,7 @@
 
 </script>
 
+<Metatag />
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-16">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<Breadcrumb flow={flow}/>

@@ -1,11 +1,14 @@
 <script>
     import Breadcrumb from "$lib/components/Breadcrumb.svelte";
     import ToolTip from "$lib/components/ToolTip.svelte";
+    import Metatag from './Metatag.svelte';
     const flow = [
         {name: "Home", link: "/"},
         {name: "About", link: "/about"},
     ];
 </script>
+
+<Metatag />
 
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10">
     <Breadcrumb flow={flow} />

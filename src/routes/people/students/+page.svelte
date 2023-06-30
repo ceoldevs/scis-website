@@ -3,6 +3,7 @@
 	import Construction from '$lib/components/Construction.svelte';
 
     import type {IStudentList} from '$lib/interfaces/studentList';
+    import Metatag from './Metatag.svelte';
 
     const flow = [
         {name: "Home", link: "/"},
@@ -12,6 +13,7 @@
     export let data: IStudentList;
 </script>
 
+<Metatag />
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10">
     <Breadcrumb flow={flow} />
     <div class="font-roboto-flex grid lpt:grid-cols-3 tbl:grid-cols-2 gap-x-5 lpt:gap-x-24 lpt:text-xl tbl:text-lg text-base text-matty-900">

@@ -3,6 +3,7 @@
     import PageItems from "$lib/components/PageItems.svelte";
     import type {IPageItems} from '$lib/interfaces/pageItems'
 	import { marked } from "marked";
+    import Metatag from "./Metatag.svelte";
 
     const pageItems: IPageItems[] = [
         {
@@ -30,6 +31,8 @@
 
 	export let data: any;
 </script>
+
+<Metatag />
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10">
     <Breadcrumb flow={flow} />
     <div class="grid grid-cols-12 gap-x-4">
