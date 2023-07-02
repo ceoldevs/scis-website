@@ -3,7 +3,7 @@
   import { marked } from 'marked';
 	import { onMount } from 'svelte';
   	import { afterUpdate } from 'svelte';
-    import Metatag from './Metatag.svelte';
+    import Metatag from '$lib/components/Metatag.svelte';
 	export let data: any;
 
 // 	let markdownContent = '';
@@ -26,7 +26,22 @@ let courses = [
 
 </script>
 
-<Metatag />
+<Metatag data={{
+	title:"Admission Page",
+	description:"SCIS WEB Admission Page",
+	link:'http://localhost:5173/acad/admissions',
+	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	og:{
+		link:'http://localhost:5173/acad/admissions',
+		title:"SCIS Admission Page",
+		description:'SCIS WEB Admission Page'
+	},
+	twitter:{
+		title: 'SCIS Admission page Twitter Card Title',
+		description:'SCIS Admission Page Twitter Card Description'
+	}
+}}/>
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
 	<div class="prose prose-matty prose-custom max-w-3xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">
 		<h2 class="font-fraunces font-medium">

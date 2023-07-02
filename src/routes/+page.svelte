@@ -1,7 +1,7 @@
 <script>
 	import LatestNews from '$lib/components/home/LatestNews.svelte';
 	import viewport from '$lib/components/home/useViewportAction';
-    import Metatag from './Metatag.svelte';
+	import Metatag from '$lib/components/Metatag.svelte' ;
 	let styleFixed = 'lpt:fixed';
 	// @ts-ignore
 	export let data;
@@ -55,5 +55,20 @@
 		</a>
 	</div>
 </div>
-<Metatag />
+<Metatag data={{
+	title:"Home Page",
+	description:"SCIS WEB Home Page",
+	link:'localhost:5173',
+	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	og:{
+		link:'localhost:5173',
+		title:"SCIS Home Page",
+		description:'SCIS WEB Home Page'
+	},
+	twitter:{
+		title: 'SCIS home page Twitter Card Title',
+		description:'SCIS Home Page Twitter Card Description'
+	}
+}}/>
 <!--TODO: Testimonials Section-->
