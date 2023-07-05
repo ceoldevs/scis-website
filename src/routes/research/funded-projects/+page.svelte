@@ -5,6 +5,7 @@
     import type {IPageItems} from '$lib/interfaces/pageItems'
 	import { marked } from "marked";
     import Metatag from "$lib/components/Metatag.svelte";
+    import {env} from '$env/dynamic/public' ;
 
     const pageItems: IPageItems[] = [
         {
@@ -36,11 +37,10 @@
 <Metatag data={{
 	title:"Funded Projects Page",
 	description:"SCIS WEB Funded Projects Page",
-	link:'http://localhost:5173/research/funded-projects',
-	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
-	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/research/funded-projects`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	imgAlt:'SCIS Site',
 	og:{
-		link:'http://localhost:5173/research/funded-projects',
 		title:"SCIS Funded Projects Page",
 		description:'SCIS WEB Funded Projects Page'
 	},

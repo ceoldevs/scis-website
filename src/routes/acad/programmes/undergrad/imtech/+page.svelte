@@ -2,6 +2,7 @@
 	import { marked } from 'marked';
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
     import Metatag from '$lib/components/Metatag.svelte';
+	import {env} from '$env/dynamic/public' ;
 	export let data: any;
 
 	const flow = [
@@ -14,11 +15,10 @@
 <Metatag data={{
 	title:"I.M.Tech Page",
 	description:"SCIS WEB I.M.Tech Page",
-	link:'http://localhost:5173/acad/programmes/undergrad/imtech',
-	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
-	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/acad/programmes/undergrad/imtech`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	imgAlt:'SCIS Site',
 	og:{
-		link:'http://localhost:5173/acad/programmes/undergrad/imtech',
 		title:"SCIS I.M.Tech Page",
 		description:'SCIS WEB I.M.Tech Page'
 	},

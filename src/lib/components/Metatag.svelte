@@ -9,7 +9,7 @@
 		description={data.description} 
 		canonical={data.link}
 		openGraph={{
-			url: data.og.link ,
+			url: data.link ,
 			title: data.og.title,
 			description: data.og.description,
 			images: [

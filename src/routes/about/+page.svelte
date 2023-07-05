@@ -2,6 +2,7 @@
     import Breadcrumb from "$lib/components/Breadcrumb.svelte";
     import ToolTip from "$lib/components/ToolTip.svelte";
     import Metatag from '$lib/components/Metatag.svelte';
+    import {env} from '$env/dynamic/public' ;
     const flow = [
         {name: "Home", link: "/"},
         {name: "About", link: "/about"},
@@ -11,11 +12,10 @@
 <Metatag data={{
 	title:"About Page",
 	description:"SCIS WEB About Page",
-	link:'http://localhost:5173/about',
-	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
-	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/about`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	imgAlt:'SCIS Site',
 	og:{
-		link:'http://localhost:5173/about',
 		title:"SCIS About Page",
 		description:'SCIS WEB About Page'
 	},

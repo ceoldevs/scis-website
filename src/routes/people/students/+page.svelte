@@ -4,7 +4,7 @@
 
     import type {IStudentList} from '$lib/interfaces/studentList';
     import Metatag from '$lib/components/Metatag.svelte';
-
+    import {env} from '$env/dynamic/public' ;
     const flow = [
         {name: "Home", link: "/"},
         {name: "People", link: "/people"},
@@ -16,11 +16,10 @@
 <Metatag data={{
 	title:"Students Page",
 	description:"SCIS WEB Students Page",
-	link:'http://localhost:5173/people/students',
-	img:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
-	imgAlt:'http://localhost:1337/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z',
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/people/students`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	imgAlt:'SCIS Site',
 	og:{
-		link:'http://localhost:5173/people/students',
 		title:"SCIS Students Page",
 		description:'SCIS WEB Students Page'
 	},
