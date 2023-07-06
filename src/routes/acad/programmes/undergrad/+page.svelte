@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
-
+    import Metatag from "$lib/components/Metatag.svelte";
+	import {env} from '$env/dynamic/public' ;
 	const flow = [
 		{name: "Home", link: "/"},
 		{name: "Programmes", link: "/acad/programmes"},
@@ -8,6 +9,21 @@
 	]
 </script>
 
+<Metatag data={{
+	title:"Undergraduate Page",
+	description:"SCIS WEB Undergraduate Page",
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/acad/programmes/undergrad`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	imgAlt:'SCIS Site',
+	og:{
+		title:"SCIS Undergraduate Page",
+		description:'SCIS WEB Undergraduate Page'
+	},
+	twitter:{
+		title: 'SCIS Undergraduate page Twitter Card Title',
+		description:'SCIS Undergraduate Page Twitter Card Description'
+	}
+}}/>
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
 	<Breadcrumb {flow} />
 	<div class="prose prose-matty prose-custom max-w-5xl prose-table:table-auto prose-th:text-clip prose-th:overflow-hidden">
