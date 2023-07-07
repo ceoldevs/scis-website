@@ -2,6 +2,8 @@
 	import { base } from '$app/paths';
 	import { marked } from 'marked';
 	import Breadcrumb from "$lib/components/Breadcrumb.svelte";
+    import Metatag from "$lib/components/Metatag.svelte";
+    import {env} from '$env/dynamic/public' ;
 
 	export let data:any;
     const getResearch: any = (rt:any) => Object.values(rt)[0];
@@ -12,9 +14,23 @@
 		{name: "Faculty", link: "/people/faculty"},
 		{name: data.data.attributes.name, link: `/people/faculty/${data.data.attributes.siteId}`},
 	]
-
 </script>
 
+<Metatag data={{
+	title:data.data.attributes.name,
+	description:`${data.data.attributes.education}${data.data.attributes.otherInformation}`,
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.data.attributes.siteId}`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}${data.data.attributes.display_pic.data.attributes.url}`,
+	imgAlt:'SCIS Site',
+	og:{
+		title:data.data.attributes.name,
+		description:`${data.data.attributes.education}${data.data.attributes.otherInformation}`
+	},
+	twitter:{
+		title: data.data.attributes.name,
+		description:`${data.data.attributes.education}${data.data.attributes.otherInformation}`
+	}
+}}/>
 <main class="flex lpt-lg:flex-row flex-col justify-between gap-8 lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10 font-roboto-flex text-lg">
     <div class="flex-2 flex flex-col">
 	<Breadcrumb flow={flow}/>
