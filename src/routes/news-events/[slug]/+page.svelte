@@ -21,17 +21,17 @@
 
 <Metatag data={{
 	title:data.data.attributes.Title,
-	description:data.data.attributes.Description.slice(0,300)||"SCIS News Feed",
+	description:data.data.attributes.Description||"SCIS News Feed".slice(0,300),
 	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.data.attributes.Slug}`,
 	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}${data.data.attributes.CoverImage.data.attributes.formats.thumbnail.url}`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:data.data.attributes.Title,
-		description:data.data.attributes.Description.slice(0,300)||"SCIS News Feed"
+		description:data.data.attributes.Description||"SCIS News Feed".slice(0,300)
 	},
 	twitter:{
 		title: data.data.attributes.Title,
-		description:data.data.attributes.Description.slice(0,300)||"SCIS News Feed"
+		description:data.data.attributes.Description||"SCIS News Feed".slice(0,300)
 	}
 }}/>
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-16">
