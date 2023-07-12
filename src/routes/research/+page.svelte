@@ -2,7 +2,8 @@
     import Breadcrumb from "$lib/components/Breadcrumb.svelte";
     import PageItems from "$lib/components/PageItems.svelte";
     import type {IPageItems} from '$lib/interfaces/pageItems'
-
+    import Metatag from "$lib/components/Metatag.svelte";
+    import {env} from '$env/dynamic/public' ;
 	export let data: any;
     const flow = [
         {name: "Home", link: "/"},
@@ -30,9 +31,23 @@
             link: "/research/linkages"
         },
     ]
-
 </script>
 
+<Metatag data={{
+	title:"Research Areas",
+	description:"Research areas provieded like Computer Networks , Computer vision , etc.",
+	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/research`,
+	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png`,
+	imgAlt:'SCIS Site',
+	og:{
+		title:"Research Areas",
+		description:"Research areas provieded like Computer Networks , Computer vision , etc."
+	},
+	twitter:{
+		title: "Research Areas",
+		description:"Research areas provieded like Computer Networks , Computer vision , etc."
+	}
+}}/>
 <main class="lpt-lg:px-24 lpt:px-14 px-4 mt-20 mb-10">
     <Breadcrumb flow={flow} />
     <div class="grid grid-cols-12 gap-x-4">
