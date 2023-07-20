@@ -56,29 +56,47 @@
 	<div class="flex flex-col gap-y-10">
 		<h1 class="font-sans font-medium text-3xl">Current Faculty</h1>
 		{#each data.data as record}
+		<a href={`${base}/people/faculty/${record.attributes.siteId}`}>
 		<div class="flex flex-col justify-center">
 			<!-- <img 
 				class="w-14 h-14 object-cover rounded-full"
 				src={`http://localhost:1337${record.attributes.display_pic.data.attributes.url}`} alt={record.attributes.siteId} /> -->
-			<div class="flex gap-3 items-center">
-				<div>{record.attributes.name}</div>
-				<a class="text-primary-light text-base underline decoration-1" href={`${base}/people/faculty/${record.attributes.siteId}`}>Profile</a> | 
-				<a class="text-primary-light text-base underline decoration-1" target="_blank" rel="noreferrer" href={`https://scis.uohyd.ac.in/${record.attributes.siteId}`}>Homepage</a>
+			<div class="flex sm:gap-3 flex-col sm:flex-row">
+				<div class="font-fraunces underline text-3xl">{record.attributes.name}</div>
+				<div class="pb-2 sm:pt-1">
+					<span class="bg-blue-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-xl dark:bg-blue-900 dark:text-blue-300 font-bold">
+						{record.attributes.position}
+					</span>
+				</div>
+				<!-- <a class="text-primary-light text-base underline decoration-1" href={`${base}/people/faculty/${record.attributes.siteId}`}>Profile</a> | 
+				<a class="text-primary-light text-base underline decoration-1" target="_blank" rel="noreferrer" href={`https://scis.uohyd.ac.in/${record.attributes.siteId}`}>Homepage</a> -->
 			</div>
-			<div class="text-sm text-neutralvariant-30 prose">
+			<!-- <div class="text-sm text-neutralvariant-30">
 				{@html marked(record.attributes.education)}
-			</div>
-			<div class="flex text-base gap-x-2">
-				<span class="text-neutralvariant-30">Areas of Interest: </span>
+			</div> -->
+			<div class="flex text-base gap-x-2 flex-col sm:flex-row">
+				<!-- <span class="text-neutralvariant-30">Areas of Interest: </span> -->
+			
 				{#each record.attributes.areaOfInterest as interest, i}
 					{#if i == record.attributes.areaOfInterest.length - 1}
-						<span>{interest}</span>
+						<span>{interest} |</span>
 					{:else}
 						<span>{interest},</span>
 					{/if}
 				{/each}
+			
+				<span>
+					<a href={`mailto:${record.attributes.email}`}>{record.attributes.email}</a>
+				</span>
+			</div>
+			<div class="text-primary-light flex items-center mt-3 sm:mt-1">
+				<span class="material-symbols-rounded">
+					language
+				</span>
+				<a class="text-base decoration-1 ml-2 mt-1" target="_blank" rel="noreferrer" href={`https://scis.uohyd.ac.in/${record.attributes.siteId}`}>Visit Home Page</a> 
 			</div>
 		</div>
+		</a>
 		{/each}
 	</div>
 	<!-- {:catch error}
