@@ -5,7 +5,7 @@
     import {env} from '$env/dynamic/public' ;
     const flow = [
         {name: "Home", link: "/"},
-        {name: "About", link: "/about"},
+        {name: "Why scis?", link: "/about"},
     ];
 </script>
 

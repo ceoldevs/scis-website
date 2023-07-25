@@ -36,7 +36,7 @@
 			link: base + "/research"
 		},
 		{
-			name: "why scis?",
+			name: "Why scis?",
 			link: base + "/about"
 		},
 	]
