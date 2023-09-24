@@ -14,8 +14,8 @@
 <Metatag data={{
 	title:data.topic,
 	description:`Research related ${data.topic} domain currently ${data.data.length} Research topic are logged in this site .`,
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.slug}`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/ioe_robotics_workshop_5ee3679693.png`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}${data.slug}`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/ioe_robotics_workshop_5ee3679693.png`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:data.topic,

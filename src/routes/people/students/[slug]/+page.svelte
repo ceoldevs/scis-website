@@ -9,8 +9,8 @@
 <Metatag data={{
 	title:data.data.attributes.batch,
 	description:`Batch ${data.data.attributes.batch} Student List`,
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.data.attributes.Slug}`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}${data.data.attributes.Slug}`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:data.data.attributes.batch,

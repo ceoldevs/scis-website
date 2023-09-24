@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import {env} from '$env/dynamic/public' ;
 	export let first:any;
 	export let other:any;
 	export let styleFixed: string;
@@ -8,7 +9,7 @@
     <div class={`tbl:relative w-full lpt:w-[50vw] lpt-lg:w-[58vw] lpt:py-5 pb-5 bg-on-primarycont-light lpt:bottom-0 lpt:h-[90vh] flex flex-col text-on-primary-light ${styleFixed}`}>
 		<img 
 			class="object-cover w-full lpt:h-[50vh] h-64"
-			src={`http://localhost:1337${first.attributes.CoverImage.data.attributes.url}`}
+			src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${first.attributes.CoverImage.data.attributes.url}`}
 			alt="Test"
 		/>
 		<div class="lpt-lg:px-10 lpt:px-6 tbl:px-6 px-2 pt-4 flex flex-col gap-y-4">
@@ -28,7 +29,7 @@
 			{#each other as item}
 				<img 
 					class="object-cover w-full lpt-lg:h-80 lpt:h-56"
-					src={`http://localhost:1337${item.attributes.CoverImage.data.attributes.url}`}
+					src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${item.attributes.CoverImage.data.attributes.url}`}
 					alt="Test"
 				/>
 				<div class="flex flex-col gap-y-4">
