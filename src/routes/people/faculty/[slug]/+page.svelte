@@ -19,8 +19,8 @@
 <Metatag data={{
 	title:data.data.attributes.name,
 	description:`${data.data.attributes.education}${data.data.attributes.otherInformation}`,
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.data.attributes.siteId}`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}${data.data.attributes.display_pic.data.attributes.url}`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}${data.data.attributes.siteId}`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${data.data.attributes.display_pic.data.attributes.url}`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:data.data.attributes.name,

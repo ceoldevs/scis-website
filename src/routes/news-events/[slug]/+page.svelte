@@ -22,8 +22,8 @@
 <Metatag data={{
 	title:data.data.attributes.Title,
 	description:(data.data.attributes.Description||"SCIS News Feed").slice(0,300),
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}${data.data.attributes.Slug}`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}${data.data.attributes.CoverImage.data.attributes.formats.thumbnail.url}`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}${data.data.attributes.Slug}`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${data.data.attributes.CoverImage.data.attributes.formats.thumbnail.url}`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:data.data.attributes.Title,
@@ -56,7 +56,7 @@
         <div class="mbt-5">
           <img
             class="w-full h-[30rem] object-cover relative"
-            src={`http://localhost:1337${data.data.attributes.CoverImage.data.attributes.url}`}
+            src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${data.data.attributes.CoverImage.data.attributes.url}`}
             alt={data.data.attributes.CoverImage.data.attributes.alternativeText}
             
           />

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import {env} from '$env/dynamic/public' ;
 	export let first:any;
 	export let other:any;
 	export let styleFixed: string;
@@ -9,7 +10,7 @@
 		<a href={`/news-events/${first.attributes.Slug}`} >
 		<img 
 			class="object-cover w-full lpt:h-[50vh] h-64"
-			src={`http://localhost:1337${first.attributes.CoverImage.data.attributes.url}`}
+			src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${first.attributes.CoverImage.data.attributes.url}`}
 			alt="Test"
 		/>
 		<div class="lpt-lg:px-10 lpt:px-6 tbl:px-6 px-2 pt-4 flex flex-col gap-y-4">
@@ -32,7 +33,7 @@
 
 				<img 
 					class="object-cover w-full lpt-lg:h-80 lpt:h-56"
-					src={`http://localhost:1337${item.attributes.CoverImage.data.attributes.url}`}
+					src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${item.attributes.CoverImage.data.attributes.url}`}
 					alt="Test"
 				/>
 				<div class="flex flex-col gap-y-4">

@@ -12,8 +12,8 @@
 <Metatag data={{
 	title:"why scis ?",
 	description:"SCIS WEB | why scis?",
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/about`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}/about`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:"SCIS | why scis?",

@@ -25,8 +25,8 @@
 <Metatag data={{
 	title:"News Page",
 	description:"SCIS WEB News Page",
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/news-events`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}/news-events`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:"SCIS News Page",
@@ -69,7 +69,7 @@
 						<!-- <a href="/news-events/{newsItem.attributes.Slug}" class="font-medium font-roboto-flex text-primary-light hover:underline underline-offset-2"></a> -->
 					</div>
 				</div>
-				<img class="lpt-lg:w-[20rem] lpt:w-[15rem] max-h-50 object-cover relative" src={`http://localhost:1337${newsItem.attributes.CoverImage.data.attributes.url}`} alt={newsItem.attributes.CoverImage.data.attributes.name}/>
+				<img class="lpt-lg:w-[20rem] lpt:w-[15rem] max-h-50 object-cover relative" src={`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}${newsItem.attributes.CoverImage.data.attributes.url}`} alt={newsItem.attributes.CoverImage.data.attributes.name}/>
 			</a> 
 			<hr>
 

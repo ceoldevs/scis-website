@@ -7,8 +7,8 @@
 <Metatag data={{
 	title:"Internal Site Page",
 	description:"SCIS WEB Internal Site Page",
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/internal`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}/internal`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png?updated_at=2023-06-09T10:45:17.357Z`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:"SCIS Internal Site Page",

@@ -36,8 +36,8 @@
 <Metatag data={{
 	title:"Research Areas",
 	description:"Research areas provieded like Computer Networks , Computer vision , etc.",
-	link:`${env.PUBLIC_SVELTEURL||'http://localhost:5173'}/research`,
-	img:`${env.PUBLIC_STRAPIURL||'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png`,
+	link:`${env.PUBLIC_SVELTEURL??'http://localhost:5173'}/research`,
+	img:`${env.PUBLIC_STRAPIURL??'http://localhost:1337'}/uploads/backtostudy_c5622fcee0.png`,
 	imgAlt:'SCIS Site',
 	og:{
 		title:"Research Areas",
