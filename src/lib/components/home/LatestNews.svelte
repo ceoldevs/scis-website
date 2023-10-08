@@ -16,7 +16,7 @@
 		<div class="lpt-lg:px-10 lpt:px-6 tbl:px-6 px-2 pt-4 flex flex-col gap-y-4">
 			<h1 class="font-fraunces lpt-lg:text-4xl lpt:text-3xl text-3xl">{first.attributes.Title}</h1>
 			<div>
-				{first.attributes.Description.slice(0,255)}...
+				{first.attributes.Description != null ? first.attributes.Description.slice(0,255) + "..." : ""}
 			</div>
 			<div class="">
 				{#each first.attributes.Actions as action}
@@ -39,7 +39,8 @@
 				<div class="flex flex-col gap-y-4">
 					<h2 class="font-fraunces text-2xl">{item.attributes.Title}</h2>
 					<div>
-						{item.attributes.Description.slice(0,155)}...
+						{item.attributes.Description != null ? item.attributes.Description.slice(0,255) + "..." : ""}
+						<!-- {item.attributes.Description.slice(0,155)}... -->
 					</div>
 					<div>
 						{#each item.attributes.Actions as action}
